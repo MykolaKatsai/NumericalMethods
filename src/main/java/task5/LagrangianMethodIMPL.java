@@ -10,16 +10,35 @@ public class LagrangianMethodIMPL {
             {1, 2}
     };
 
+    private static final double[][] input1 = {
+            {-1, -1.1071487177940905030},
+            {-0.75, -0.98279372324732906799},
+            {-0.5, -0.78539816339744830962},
+            {-0.25, -0.46364760900080611621},
+            {0, 0},
+            {0.25, 0.46364760900080611621},
+            {0.5, 0.78539816339744830962},
+            {0.75, 0.98279372324732906799},
+            {1, 1.1071487177940905030}
+    };
+
     public static void main(String[] args) {
-        String functionStr = getFunctionStr();
+        String functionStr = getFunctionStr(input1);
         Function functionL = new Function("f(x) = " + functionStr);
 
-        for (int i = 0; i < input.length; i++) {
-            System.out.println(functionL.calculate(input[i][0]));
+        for (int i = 0; i < input1.length; i++) {
+            System.out.println(functionL.calculate(input1[i][0]));
         }
+
+        System.out.println();
+        System.out.println("Check control values:");
+        System.out.println(functionL.calculate(-0.9d));
+        System.out.println(functionL.calculate(-0.3d));
+        System.out.println(functionL.calculate(0.3d));
+        System.out.println(functionL.calculate(0.9d));
     }
 
-    private static String getFunctionStr() {
+    private static String getFunctionStr(double[][] input) {
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < input.length; i++) {
             str.append("(");

@@ -21,12 +21,12 @@ public class LinearEquationsSolver {
     }; // input matrix A1
 
     public static void main(String[] args) {
-        double[] answers = getAnswers(reduceToDiagonalMatrix(EXTENDED_MATRIX_A1));
+        double[] answers = getAnswers(reduceToUpDiagonalMatrix(EXTENDED_MATRIX_A1));
         System.out.println(Arrays.toString(answers));
 
     }
 
-    private static double[][] reduceToDiagonalMatrix(double[][] matrixA) {
+    private static double[][] reduceToUpDiagonalMatrix(double[][] matrixA) {
         double[][] matrixRes = new double[matrixA.length][matrixA.length - 1];
         for (int i = 0; i < matrixA.length; i++) {
             matrixRes[i] = matrixA[i].clone();
